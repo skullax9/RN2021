@@ -1,57 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-// 예 2.16
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, { Component } from 'react';
+import { Button, StyleSheet, View } from 'react-native';
+import getStyleSheet from './styles';    
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+export default class App extends Component {
 
-class App extends React.Component{
-  constructor(){
-    super()
-    this.state={loading:true, data:{}}
+  constructor(props) {
+      super(props);
+      this.state = {
+          darkTheme: false    
+      };
+      this.toggleTheme = this.toggleTheme.bind(this);    
   }
-  componentDidMount(){
-    //   #simulate ajex call
-      setTimeout(()=>{
-          this.setState({
-              loading:false,
-              data:{name:'Nader Dabit',age:35}
-          })
-      },2000)
-  }
-    render(){
-        if(this.state.loading){
-            return <Text>Loading</Text>
-        }
-        const {name,age} = this.state.data
-        return(
-            <View >
-                <Text>name:{name}</Text>
-                <Text>age:{age}</Text>
+
+  toggleTheme() {
+      this.setState({darkTheme: !this.state.darkTheme})    
+  };
+
+  render() {
+
+    const styles = getStyleSheet(this.state.darkTheme);    
+    const backgroundColor =
+          StyleSheet.flatten(styles.container).backgroundColor;    
+
+    return (
+        <View style={styles.container}>    
+            <View style={styles.box}>    
+                <Button title={backgroundColor}    
+                        onPress={this.toggleTheme}/>    
             </View>
-        )
-    }
+        </View>
+    );
+  }
 }
-
-export default App;
