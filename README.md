@@ -2,11 +2,56 @@
 ## React Native Android (2021)
 
 ## 05월 07일
->1. 테스트
->* 테스트
+>1. component 선언방법 두가지
+>>* class : state,liftCycle 관련 기능 사용 가능하고 임의 메소드를 정의 할 수 있다.
+>>* function : state,liftCycle 관련 기능 사용 불가하고 컴포넌트 선언이 편리하다.
 ```javascript
-import react from 'react'
+// class 형태
+class Project extends Component {
+    render() {
+        const name = "class";
+        return (
+            <div>{name}</div>
+        )
+    }
+}
+
+//function 형태
+function Project() {
+    const name = 'function';
+    return <div>{name}</div>;
+}
 ```
+
+>2. 구조 분해 할당
+>>* 구조 분해를 사용하면 객체 안에 있는 필드 값을 원하는 변수에 대입할 수 있다.
+>>* 코드의 가독성을 높이고 간략화를 할 때 유용하게 사용된다.
+```javascript
+// 배열
+let arr = ["react","native"]
+
+let [first,second] = arr;
+
+console.log(first); // react
+cossole.log(second); // native
+
+//객체
+let arr2 = {
+    p1: "A",
+    p2: "B",
+    P3: "C"
+};
+
+let {p1,p2,p3} = arr2;
+
+cossole.log(p1); // A
+cossole.log(p2); // B
+cossole.log(p3); // C
+```
+
+>3. AppRegistry
+>>* AppRegistry를 통하여 시작하는 컴포넌트를 지정할 수 있다
+>>* 해당 컴포넌트의 render 메소드를 통해 뷰를 렌더링한다.
 
 ## 04월 30일
 >1. 리액트 네이티브 스타일 적용과 관리
@@ -18,7 +63,6 @@ import react from 'react'
 >> - 스타일은 컴포넌트 단위로 적용
 >> - 스타일시트 선언을 통한 완전한 캡슐화 가능
 >> - 스타일 파일의 확장자는 js 
-
 
 ## 04월 16일
 >1. 렌더링을 위한 2개의 컴포넌트 작성
