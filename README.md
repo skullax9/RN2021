@@ -28,6 +28,7 @@
 >>* margin을 이용하여 컴포넌트 사이의 상대적 위치를 정의
 >>* padding을 이용하여 컴포넌트 테두리로 부터 컴포넌트의 상대적 위치를 정의
 >>* 컴포넌트 속성별 영역의 상호 연관성
+
 ![캡처](https://user-images.githubusercontent.com/70187273/118226530-2148b400-b4c2-11eb-958f-fff70ffd3d2f.PNG)
 ```javascript
 //margin
