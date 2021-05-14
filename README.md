@@ -1,8 +1,73 @@
 # 이영찬 201740130
 ## React Native Android (2021)
 
+## 05월 14일
+>1. Component 스타일 (border)
+>>* border는 컴포넌트의 테두리를 뜻한다.
+>>* 속성은 크게 네가지로 나뉜다. Color, Radius, Style, Width
+```javascript
+<Example style={{borderWidth: 1}}>    
+    <Text>borderWidth: 1</Text>
+</Example>
+<Example style={{borderWidth: 3, borderLeftWidth: 0}}>    
+    <Text>borderWidth: 3, borderLeftWidth: 0</Text>
+</Example>
+<Example style={{borderWidth: 3, borderLeftColor: 'red'}}>    
+    <Text>borderWidth: 3, borderLeftColor: 'red'</Text>
+</Example>
+<Example style={{borderLeftWidth: 3}}>    
+    <Text>borderLeftWidth: 3</Text>
+</Example>
+<Example style={{borderWidth: 1, borderStyle: 'dashed'}}>    
+    <Text>borderWidth: 1, borderStyle: 'dashed'</Text>
+</Example>
+```
+![캡처](https://user-images.githubusercontent.com/70187273/118224688-a3cf7480-b4be-11eb-8bf1-9c6012021b21.PNG)
+
+>2. Component 스타일 II (margin, padding)
+>>* margin을 이용하여 컴포넌트 사이의 상대적 위치를 정의
+>>* padding을 이용하여 컴포넌트 테두리로 부터 컴포넌트의 상대적 위치를 정의
+>>* 컴포넌트 속성별 영역의 상호 연관성
+![캡처](https://user-images.githubusercontent.com/70187273/118226530-2148b400-b4c2-11eb-958f-fff70ffd3d2f.PNG)
+```javascript
+//margin
+<Example style={{}}/>   //A
+<Example style={{marginTop: 50}}/>   //B
+<Example style={{marginTop: 50, marginLeft: 10}}/>   //C
+<Example style={{marginLeft: -10, marginTop: -10}}/>  //D
+```
+![캡처](https://user-images.githubusercontent.com/70187273/118229874-b7cba400-b4c7-11eb-9864-1020b1d0345d.PNG)
+```javascript
+//padding
+<Example style={{}}/>   //A
+<Example style={{paddingTop: 50}}/>   //B
+<Example style={{paddingTop: 50, paddingLeft: 10}}/>   //C
+<Example style={{paddingLeft: -10, paddingTop: -10}}/>  //D
+```
+![캡처](https://user-images.githubusercontent.com/70187273/118229916-c74aed00-b4c7-11eb-8b40-763c98635c22.PNG)
+
+>3. Component 스타일 III (position)
+>>* 리액트 네이티브에서 모든 요소는 다른 요소들에 상대적으로 배치
+>>* absolute로 지정되면 해당 요소의 위치는 부모요소의 위치를 기준으로 배치
+>>* absolute(절대값)와 relative(상대값) 두가지 속성 존재
+>>* css의 static, fixed 지원X
+```javascript
+<View style={styles.row}/> //A B C
+<View style={[styles.tinyExample, {position:'absolute', right:0, bottom: 0}]}/> //D
+<Example style={{position: 'absolute', right:0, bottom:0}}>
+```
+```css
+row:{
+    flex: 1,
+    flexDirection: 'row'
+}
+```
+![캡처](https://user-images.githubusercontent.com/70187273/118230673-04fc4580-b4c9-11eb-87d3-0810048fda31.PNG)
+
+
+
 ## 05월 07일
->1. component 선언방법 두가지
+>1. Component 선언방법 두가지
 >>* class : state,liftCycle 관련 기능 사용 가능하고 임의 메소드를 정의 할 수 있다.
 >>* function : state,liftCycle 관련 기능 사용 불가하고 컴포넌트 선언이 편리하다.
 ```javascript
