@@ -1,6 +1,42 @@
 # 이영찬 201740130
 ## React Native Android (2021)
 
+## 05월 21호
+>1. Component의 수직, 수평 정렬 (alignItems)
+>>* flex 요소의 수직 방향 정렬 방식 설정
+>>* 두 줄 이상을 가지는 flex 에서 효과 발생
+```css
+cardContainer: {
+        alignItems: 'center',
+        ...
+}
+```
+![캡처](https://user-images.githubusercontent.com/70187273/119085237-51520300-ba3e-11eb-90cb-05fc93b77e86.PNG)
+
+>2. font family 지정
+>>* fontFamily 속성에 여러개의 폰트 지정 가능
+>>* iOS에선 monospace 사용 불가
+>>* 기본 폰트 외 다른 폰트 사용시 Platform 컴포넌트 이용
+```javascript
+import {Platform,Stylesheet,Text,View} from 'react-native';
+~
+{Platform.OS}
+~
+centeredText: {
+    ~,
+    ...Platform.select({
+        ios: {
+            ~
+        },
+        android: {
+            ~
+        }
+    })
+}
+```
+![캡처](https://user-images.githubusercontent.com/70187273/119086672-cf170e00-ba40-11eb-96ee-ab7a1f3c86b6.PNG)
+
+
 ## 05월 14일
 >1. Component 스타일 (border)
 >>* border는 컴포넌트의 테두리를 뜻한다.
