@@ -2,8 +2,42 @@
 ## React Native Android (2021)
 
 ## 05월 28일
->1. 네비게이션
->* 
+>1. React Navigation
+>>* 앱의 가장 핵심 기능중의 하나로, 개발하기 전 네비게이션과 라우팅 계획 수립 필요
+>>* 대표적으로 탭(tab-based), 스택(stack-based), 드로어(drawer-based)가 있다.
+```javascript
+// stack navigation
+const Stack = createStackNavigator();
+
+<Stack.Navigator>
+    <Stack.Screen name="name" component={componentName} />
+</Stack.Navigator>
+
+// tab navigation
+const Tab = createBottomTabNavigator();
+
+<Tab.Navigator>
+    <Tab.Screen name="name" component={componentName} />
+</Tab.Navigator>
+
+// drawer navigation
+const Drawer = createDrawerNavigator();
+
+<Drawer.Navigator initialRouteName="Home">
+    <Drawer.Screen name="name" component={componentName} />
+</Drawer.Navigator>
+```
+![stack](https://user-images.githubusercontent.com/70187273/119933235-b1a4ef80-bfbe-11eb-80a2-9aa5127f86a9.PNG) ![tab](https://user-images.githubusercontent.com/70187273/119933251-b9649400-bfbe-11eb-863a-3c68a71cefc3.PNG) ![drawer](https://user-images.githubusercontent.com/70187273/119933509-36900900-bfbf-11eb-8243-48d9b9b989b2.png)
+
+>2. Expo CLI
+>>2-1 React-Native-CLI
+>>* RN개발진들이 운영하기 떄문에 업데이트가 빠름
+>>* native 언어 java, kotln, swift 사용 가능
+>>2-2 Expo
+>>* 쉬운 build system, IDE 없이도 Expo SDK 를 통해 빌드 및 테스트 가능
+>>* 스마트폰 기능에 접근 가능한 라이브러리 존재
+>>* 상대적으로 업데이트가 느림
+
 
 ## 05월 21일
 >1. Component의 수직, 수평 정렬 (alignItems)
@@ -15,7 +49,6 @@ cardContainer: {
         ...
 }
 ```
-![캡처](https://user-images.githubusercontent.com/70187273/119085237-51520300-ba3e-11eb-90cb-05fc93b77e86.PNG)
 
 >2. font family 지정
 >>* fontFamily 속성에 여러개의 폰트 지정 가능
