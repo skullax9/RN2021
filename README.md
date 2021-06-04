@@ -1,6 +1,69 @@
 # 이영찬 201740130
 ## React Native Android (2021)
 
+## 06월 04일
+>1. Redux
+>>* 자바스크립트 앱을 위한 예측 가능한 state 컨테이너
+>>* 앱에 단 하나만 존재하는 전역 state의 객체
+>>* React Native에서 props로 전달
+
+![캡처](https://user-images.githubusercontent.com/70187273/120749622-ddd0eb00-c53f-11eb-9d50-2510231019b7.PNG)
+
+>2. provider
+>>* 자식 컴포넌트에 데이터를 전달하는 부모 컴포넌트
+>>* 앱 전체에 전역 state를 전달하는 역할
+```javascript
+<Provider name={props}>
+    <Component />
+</Provider>
+```
+
+>3. connect
+>>* redux의 connect 함수를 이용하여 자식 컴포넌트에서 store 참조
+>>* 첫 번째 매개변수는 전역 state를 참조할 수 있게 해주는 함수
+>>* 다른 함수를 반환하는 커링 함수
+```javascript
+//connect
+connect (
+    (state) => {
+        return {
+            books: state.bookReducer.books
+        }
+    }
+)(Books)
+
+//store
+const mapStateToProps = state => ({
+    books: state.bookReducers.books
+})
+export default connect(mapStateToProps)(Books)
+```
+
+>4. action
+>>* store에 데이터를 보내고, reducer 업데이트하는 객체를 반환하는 함수
+>>* 오직 store의 데이터는 action을 통해 변경 가능
+>>* dispatch 함수로 호출하면 모든 reducer에 action 전달
+```javascript
+//action example code
+export const FUNCTION = 'NAME';
+
+export function fn_name() {
+    return {
+        type: FUNCTION
+    };
+}
+```
+>5. uuid
+>>* uuid() 함수를 호출하면 랜덤으로 문자열 생성
+>>* uuidv4()로 리액트 컴포넌트의 키 값을 생성하여 사용
+```javascript
+uuid()
+// e9ee74a7-cf11-4fac-8b77-61b51c7d636b
+
+<span key={uuidv4()}>value</span>
+```
+
+
 ## 05월 28일
 >1. React Navigation
 >>* 앱의 가장 핵심 기능중의 하나로, 개발하기 전 네비게이션과 라우팅 계획 수립 필요
